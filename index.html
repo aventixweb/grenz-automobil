@@ -234,12 +234,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,
   position:absolute;
   inset:0;
   background-image:url('grenz.jpeg');
-  background-size:cover;
+  background-size:cover; /* wichtig: kein contain */
   background-position:center 40%;
+  background-repeat:no-repeat; /* verhindert mehrfaches Bild */
   filter:brightness(.75) saturate(.5);
 }
-
-/* ↑ EIGENES FOTO: Ersetzen Sie die URL oben durch Ihren Bildpfad */
 
 .hero-overlay{
   position:absolute;
@@ -353,19 +352,20 @@ header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,
 
 
 /* ---------------------------------------------------
-   📱 MOBILE VERSION – Hintergrundbild größer & sichtbarer
+   📱 MOBILE VERSION – Perfekt optimiert
 --------------------------------------------------- */
 
 @media (max-width: 768px) {
 
   .hero{
-    min-height:130svh; /* mehr Höhe → mehr Bild sichtbar */
+    min-height:120svh; /* mehr Höhe → mehr Bild sichtbar */
   }
 
   .hero-bg{
-    background-size:contain; /* zeigt das Bild fast komplett */
-    background-position:center top; /* Fokus nach oben */
-    filter:brightness(.85) saturate(.7); /* etwas heller */
+    background-size:cover; /* wichtig: kein contain */
+    background-position:center 20%; /* zeigt mehr vom oberen Motiv */
+    background-repeat:no-repeat; /* verhindert mehrfaches Bild */
+    filter:brightness(.85) saturate(.7);
   }
 
   .hero-overlay{
@@ -381,6 +381,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,
     padding-bottom:2rem;
   }
 }
+
 
 
 /* ════════════════════════════════
