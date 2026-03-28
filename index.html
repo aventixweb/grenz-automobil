@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="Grenz Automobile">
 <meta property="og:title" content="Grenz Automobile – KFZ Meister &amp; VW-Spezialist Bad Lippspringe">
 <meta property="og:description" content="Ihr Spezialist für VW Busse, Transporter &amp; Reisemobile seit 2003. Werkstatt, TÜV, Tuning &amp; Gebrauchtwagen in Bad Lippspringe. 4,7 Sterne bei Google.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&q=80&auto=format">
+<meta property="og:image" content="https://www.grenz-automobile.de/bilder/grenz_t4.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Grenz Automobile – VW-Spezialist Bad Lippspringe">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Grenz Automobile – KFZ Meister &amp; VW-Spezialist Bad Lippspringe">
 <meta name="twitter:description" content="Ihr Spezialist für VW Busse, Transporter &amp; Reisemobile seit 2003. Werkstatt, TÜV, Tuning &amp; Gebrauchtwagen.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&q=80&auto=format">
+<meta name="twitter:image" content="https://www.grenz-automobile.de/bilder/grenz_t4.jpeg">
 
 <!-- ── Geo / Lokales SEO ── -->
 <meta name="geo.region" content="DE-NW">
@@ -85,11 +85,10 @@
 </script>
 
 <!-- ── Performance: Preconnect & DNS ── -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link rel="dns-prefetch" href="https://www.google.com">
 <link rel="dns-prefetch" href="https://home.mobile.de">
+<link rel="dns-prefetch" href="https://maps.googleapis.com">
 
 <script type="application/ld+json">
 {
@@ -107,13 +106,12 @@
 }
 </script>
 
-<!-- ── Performance: Preload Hero Image ── -->
-<link rel="preload" as="image"
-  href="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&q=80&auto=format"
-  fetchpriority="high">
+<!-- ── Preload Hero Image (LCP critical) ── -->
+<link rel="preload" as="image" href="bilder/grenz_t4.jpeg" fetchpriority="high" type="image/jpeg">
 
-<!-- ── Fonts: display=swap for performance ── -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<!-- ── Bunny Fonts – DSGVO-konform, EU-Server, non-render-blocking ── -->
+<link rel="preload" href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800|lora:400,400i,500,500i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.bunny.net/css?family=montserrat:300,400,500,600,700,800|lora:400,400i,500,500i&display=swap" rel="stylesheet"></noscript>
 
 <style>
 /* ── TOKENS ── */
@@ -129,11 +127,45 @@ body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-se
 img{display:block;width:100%;max-width:100%}
 a{color:inherit}
 
-/* modal trigger buttons */
-.modal-link{background:none;border:none;color:var(--silver-l);font-family:inherit;font-size:.82rem;cursor:pointer;padding:0;text-align:left;transition:color .2s}
+/* modal trigger buttons — reset all browser defaults */
+.modal-link{
+  background:none;border:none;color:var(--silver-l);
+  font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:400;
+  cursor:pointer;padding:0;text-align:left;
+  transition:color .2s ease;
+  display:inline;line-height:inherit;vertical-align:baseline;
+}
 .modal-link:hover{color:var(--white)}
-.modal-link.inline{color:var(--accent);text-decoration:underline;font-size:inherit;font-weight:inherit}
+.modal-link.inline{
+  color:var(--accent);text-decoration:underline;
+  font-size:inherit;font-weight:inherit;
+}
 .modal-link.inline:hover{color:var(--silver-x)}
+
+/* footer-col: style both a and button.modal-link identically */
+.footer-col a,
+.footer-col .modal-link{
+  font-size:.82rem;color:var(--silver-l);text-decoration:none;cursor:pointer;
+  transition:color .3s ease,padding-left .3s cubic-bezier(.16,1,.3,1);
+  display:inline-block;background:none;border:none;padding:0;
+  font-family:'Montserrat',sans-serif;font-weight:400;text-align:left;
+  width:100%;
+}
+.footer-col a:hover,
+.footer-col .modal-link:hover{color:var(--white);padding-left:.4rem}
+
+/* footer-bottom legal links */
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.footer-copy{font-size:.62rem;letter-spacing:.08em;color:var(--silver);text-transform:uppercase;line-height:1.7}
+.footer-legal{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.footer-legal .modal-link{
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--silver);cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-weight:400;
+  background:none;border:none;padding:0;
+  transition:color .3s ease;
+}
+.footer-legal .modal-link:hover{color:var(--silver-x)}
 .skip-link{position:absolute;top:-999px;left:1rem;background:var(--white);color:var(--black);font-size:.8rem;font-weight:700;padding:.5rem 1rem;border-radius:var(--r);z-index:9999;text-decoration:none}
 .skip-link:focus{top:1rem}
 
@@ -205,184 +237,176 @@ html.js-ready .reveal-d3{transition-delay:.24s}
 /* ════════════════════════════════
    HEADER
 ════════════════════════════════ */
-header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);transition:background .3s}
 .header-inner{max-width:1200px;margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
 .logo-name{font-size:1.1rem;font-weight:800;letter-spacing:.07em;color:var(--white);text-transform:uppercase;line-height:1}
 .logo-tag{font-size:.48rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--silver)}
-.menu-btn{background:none;border:none;color:var(--white);cursor:pointer;padding:.5rem;-webkit-tap-highlight-color:transparent;line-height:0}
+.menu-btn{
+  background:none;border:none;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  width:44px;height:44px;padding:0;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.menu-btn .bar{display:block;width:22px;height:2px;background:var(--white);border-radius:2px}
 .desktop-nav{display:none}
 .header-tel-desktop{display:none}
-.mobile-nav{display:none;flex-direction:column;border-top:1px solid rgba(255,255,255,.07);padding:.4rem 1.25rem 1rem;background:rgba(13,13,13,.98)}
-.mobile-nav a{font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver-l);text-decoration:none;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
-.mobile-nav .tel-link{color:var(--accent);border-bottom:none;margin-top:.3rem}
-.mobile-nav.open{display:flex}
+
+/* ── MOBILE MENU OVERLAY ── */
+#mobileNav{
+  display:none;
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  z-index:9999;
+  background:#000;
+  flex-direction:column;
+  opacity:0;
+  transition:opacity .3s cubic-bezier(.16,1,.3,1);
+}
+#mobileNav.open{
+  display:flex;
+  animation:navFadeIn .3s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes navFadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.mnav-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.25rem;
+  min-height:64px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.mnav-logo{
+  font-family:'Montserrat',sans-serif;
+  font-size:1rem;font-weight:800;letter-spacing:.07em;
+  color:#fff;text-transform:uppercase;
+}
+.mnav-close{
+  background:none;border:none;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0;border-radius:50%;
+  transition:background .25s ease;
+}
+.mnav-close:hover{background:rgba(255,255,255,.08)}
+.mnav-close svg{stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;transition:stroke .2s}
+.mnav-links{
+  flex:1;
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  padding:0;
+}
+.mnav-link{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.15rem;font-weight:600;
+  color:#fff;text-decoration:none;
+  padding:1.1rem 1.5rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  -webkit-tap-highlight-color:transparent;
+  transition:background .2s ease, color .2s ease, padding-left .25s cubic-bezier(.16,1,.3,1);
+  /* stagger in when menu opens */
+  opacity:0;transform:translateX(-16px);
+  animation:none;
+}
+#mobileNav.open .mnav-link{
+  animation:linkSlideIn .4s cubic-bezier(.16,1,.3,1) forwards;
+}
+#mobileNav.open .mnav-link:nth-child(1){animation-delay:.05s}
+#mobileNav.open .mnav-link:nth-child(2){animation-delay:.1s}
+#mobileNav.open .mnav-link:nth-child(3){animation-delay:.15s}
+#mobileNav.open .mnav-link:nth-child(4){animation-delay:.2s}
+#mobileNav.open .mnav-link:nth-child(5){animation-delay:.25s}
+#mobileNav.open .mnav-link:nth-child(6){animation-delay:.3s}
+@keyframes linkSlideIn{
+  from{opacity:0;transform:translateX(-16px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.mnav-link:last-child{border-bottom:none}
+.mnav-link:hover{
+  background:rgba(255,255,255,.04);
+  color:var(--accent);
+  padding-left:2rem;
+}
+.mnav-link:active{background:rgba(255,255,255,.08)}
+
+/* arrow icon on each link */
+.mnav-link::after{
+  content:'→';
+  font-size:.85rem;
+  color:rgba(255,255,255,.2);
+  transition:color .25s, transform .3s cubic-bezier(.16,1,.3,1);
+  transform:translateX(0);
+}
+.mnav-link:hover::after{
+  color:var(--accent);
+  transform:translateX(6px);
+}
+
+.mnav-footer{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:1.25rem 1.5rem;
+  flex-shrink:0;
+  opacity:0;
+  animation:none;
+}
+#mobileNav.open .mnav-footer{
+  animation:linkSlideIn .4s cubic-bezier(.16,1,.3,1) .35s forwards;
+}
+.mnav-tel{
+  font-family:'Montserrat',sans-serif;
+  font-size:.95rem;font-weight:600;
+  color:rgba(255,255,255,.5);text-decoration:none;
+  transition:color .2s;
+}
+.mnav-tel:hover{color:#fff}
 
 /* ════════════════════════════════
    HERO
 ════════════════════════════════ */
 .hero{
   min-height:100svh;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  padding-bottom:3rem;
-  overflow:hidden;
+  position:relative;display:flex;align-items:flex-end;
+  padding-bottom:3rem;overflow:hidden;
 }
-
 .hero-bg{
-  position:absolute;
-  inset:0;
-  background-image:url('grenz.jpeg');
-  background-size:cover; /* wichtig: kein contain */
-  background-position:center 40%;
-  background-repeat:no-repeat; /* verhindert mehrfaches Bild */
-  filter:brightness(.75) saturate(.5);
+  position:absolute;inset:0;
+  background-image:url('bilder/grenz_t4.jpeg');
+  background-size:cover;
+  /* Mobile: centre the most interesting part of the image */
+  background-position:center 30%;
+  filter:brightness(.52) saturate(.3);
+  transform:scale(1.04); /* slight scale so edges never show white */
+  transition:transform 8s ease-out;
 }
-
+.hero-bg.loaded{transform:scale(1)}
 .hero-overlay{
-  position:absolute;
-  inset:0;
+  position:absolute;inset:0;
+  /* Mobile: lighter overlay so image shows through more */
   background:linear-gradient(
     to top,
-    rgba(13,13,13,1) 0%,
-    rgba(13,13,13,.55) 50%,
-    rgba(13,13,13,.1) 100%
+    rgba(13,13,13,1)    0%,
+    rgba(13,13,13,.6)  35%,
+    rgba(13,13,13,.25) 65%,
+    rgba(13,13,13,.05) 100%
   );
 }
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  width:100%;
-}
-
-.hero-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter:blur(8px);
-  border-radius:99px;
-  padding:.4rem 1rem;
-  margin-bottom:1.2rem;
-  font-size:.6rem;
-  font-weight:600;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--silver-x);
-}
-
-.badge-dot{
-  width:6px;
-  height:6px;
-  background:#5a9e6f;
-  border-radius:50%;
-  flex-shrink:0;
-  animation:pulse 2.5s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{opacity:1}
-  50%{opacity:.3}
-}
-
-.hero h1{
-  font-size:2.4rem;
-  font-weight:800;
-  line-height:1.05;
-  color:var(--white);
-  letter-spacing:-.01em;
-  margin-bottom:1rem;
-}
-
-.hero h1 em{
-  font-style:normal;
-  color:var(--accent);
-}
-
-.hero-desc{
-  font-size:.92rem;
-  color:var(--silver-l);
-  font-weight:300;
-  line-height:1.8;
-  margin-bottom:1.8rem;
-}
-
-.hero-btns{
-  display:flex;
-  flex-direction:column;
-  gap:.75rem;
-}
-
-.hero-meta{
-  display:flex;
-  gap:0;
-  margin-top:2.5rem;
-  border-top:1px solid rgba(255,255,255,.1);
-  padding-top:1.5rem;
-}
-
-.hero-stat{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:.25rem;
-  text-align:center;
-}
-
-.hero-stat+.hero-stat{
-  border-left:1px solid rgba(255,255,255,.1);
-}
-
-.hero-stat-num{
-  font-size:1.5rem;
-  font-weight:800;
-  color:var(--white);
-  line-height:1;
-}
-
-.hero-stat-label{
-  font-size:.55rem;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:var(--silver);
-}
-
-
-/* ---------------------------------------------------
-   📱 MOBILE VERSION – Perfekt optimiert
---------------------------------------------------- */
-
-@media (max-width: 768px) {
-
-  .hero{
-    min-height:120svh; /* mehr Höhe → mehr Bild sichtbar */
-  }
-
-  .hero-bg{
-    background-size:cover; /* wichtig: kein contain */
-    background-position:center 20%; /* zeigt mehr vom oberen Motiv */
-    background-repeat:no-repeat; /* verhindert mehrfaches Bild */
-    filter:brightness(.85) saturate(.7);
-  }
-
-  .hero-overlay{
-    background:linear-gradient(
-      to top,
-      rgba(13,13,13,1) 0%,
-      rgba(13,13,13,.35) 40%,
-      rgba(13,13,13,0) 100%
-    );
-  }
-
-  .hero-content{
-    padding-bottom:2rem;
-  }
-}
-
-
+.hero-content{position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);border-radius:99px;padding:.4rem 1rem;margin-bottom:1.2rem;font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-x)}
+.badge-dot{width:6px;height:6px;background:#5a9e6f;border-radius:50%;flex-shrink:0;animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:2.4rem;font-weight:800;line-height:1.05;color:var(--white);letter-spacing:-.01em;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-desc{font-size:.92rem;color:var(--silver-l);font-weight:300;line-height:1.8;margin-bottom:1.8rem}
+.hero-btns{display:flex;flex-direction:column;gap:.75rem}
+.hero-meta{display:flex;gap:0;margin-top:2.5rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem}
+.hero-stat{flex:1;display:flex;flex-direction:column;gap:.25rem;text-align:center}
+.hero-stat+.hero-stat{border-left:1px solid rgba(255,255,255,.1)}
+.hero-stat-num{font-size:1.5rem;font-weight:800;color:var(--white);line-height:1}
+.hero-stat-label{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--silver)}
 
 /* ════════════════════════════════
    TRUST BAR
@@ -609,6 +633,60 @@ header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(13,13,13,
 .oz .off td{color:var(--mid)}
 
 /* ════════════════════════════════
+   MODALS
+════════════════════════════════ */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.88);
+  backdrop-filter:blur(10px);z-index:800;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+
+.modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:var(--charcoal);z-index:900;
+  opacity:0;pointer-events:none;
+  transform:translateY(100%);
+  transition:opacity .3s,transform .35s cubic-bezier(.32,1,.52,1);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.modal.open{opacity:1;pointer-events:all;transform:translateY(0)}
+
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;
+}
+.modal-title{font-size:1.2rem;font-weight:700;color:var(--white)}
+.modal-sub{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-top:.2rem}
+.modal-x{
+  width:34px;height:34px;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--silver);flex-shrink:0;
+  transition:background .2s,color .2s;
+}
+.modal-x:hover{background:rgba(255,255,255,.14);color:var(--white)}
+.modal-x svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+.modal-body{
+  padding:1.25rem;overflow-y:auto;flex:1;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;scrollbar-color:var(--mid) transparent;
+}
+.modal-body h3{font-size:.95rem;font-weight:700;color:var(--silver-x);margin:1.5rem 0 .5rem}
+.modal-body h3:first-child{margin-top:0}
+.modal-body p{font-size:.85rem;color:var(--silver);font-weight:300;line-height:1.85;margin-bottom:.75rem}
+.modal-body ul{list-style:none;margin-bottom:.75rem}
+.modal-body ul li{font-size:.85rem;color:var(--silver);font-weight:300;line-height:1.85;padding-left:1.1rem;position:relative}
+.modal-body ul li::before{content:'–';position:absolute;left:0}
+.addr-box{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);padding:1rem 1.2rem;margin:.4rem 0 .9rem;
+  font-size:.78rem;line-height:2.2;color:var(--silver-l);
+}
+
+/* ════════════════════════════════
    FOOTER
 ════════════════════════════════ */
 footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:2.5rem 1.25rem 1.5rem}
@@ -617,38 +695,34 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
 .footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
 .footer-col h5{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver);font-weight:700;margin-bottom:1rem}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
-.footer-col a{font-size:.82rem;color:var(--silver-l);text-decoration:none;cursor:pointer;transition:color .3s ease,padding-left .3s cubic-bezier(.16,1,.3,1);display:inline-block}
-.footer-col a:hover{color:var(--white);padding-left:.4rem}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;flex-direction:column;gap:.8rem}
-.footer-copy{font-size:.62rem;letter-spacing:.08em;color:var(--silver);text-transform:uppercase;line-height:1.7}
-.footer-legal{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-legal a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);text-decoration:none;cursor:pointer;transition:color .3s ease}
-.footer-legal a:hover{color:var(--silver-x)}
 
-/* ════════════════════════════════
-   MODALS
-════════════════════════════════ */
-.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);z-index:800;opacity:0;pointer-events:none;transition:opacity .3s}
-.modal-backdrop.open{opacity:1;pointer-events:all}
-.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--charcoal);z-index:900;opacity:0;pointer-events:none;transform:translateY(100%);transition:opacity .3s,transform .35s cubic-bezier(.32,1,.52,1);display:flex;flex-direction:column}
-.modal.open{opacity:1;pointer-events:all;transform:translateY(0)}
-.modal-head{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
-.modal-title{font-size:1.2rem;font-weight:700;color:var(--white)}
-.modal-sub{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-top:.2rem}
-.modal-x{width:34px;height:34px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--silver);flex-shrink:0}
-.modal-x svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
-.modal-body{padding:1.25rem;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
-.modal-body h3{font-size:.95rem;font-weight:700;color:var(--silver-x);margin:1.5rem 0 .5rem}
-.modal-body h3:first-child{margin-top:0}
-.modal-body p{font-size:.85rem;color:var(--silver);font-weight:300;line-height:1.85;margin-bottom:.75rem}
-.modal-body ul{list-style:none;margin-bottom:.75rem}
-.modal-body ul li{font-size:.85rem;color:var(--silver);font-weight:300;line-height:1.85;padding-left:1.1rem;position:relative}
-.modal-body ul li::before{content:'–';position:absolute;left:0}
-.addr-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:1rem 1.2rem;margin:.4rem 0 .9rem;font-size:.78rem;line-height:2.2;color:var(--silver-l)}
-
-/* ════════════════════════════════
-   TABLET ≥ 640px
-════════════════════════════════ */
+/* ── MOBILE PREMIUM TOUCH EFFECTS ── */
+@media(max-width:959px){
+  /* Tap highlight on cards */
+  .vcard:active{transform:scale(.985);transition:transform .15s ease}
+  .rcard:active{transform:scale(.985) translateY(-2px);transition:transform .15s ease}
+  .zcard:active{transform:scale(.985);transition:transform .15s ease}
+  .faq-q:active .faq-q-text{color:var(--accent)}
+  /* Trust bar smooth scroll indicator */
+  .trust-bar::after{
+    content:'';position:absolute;right:0;top:0;bottom:0;width:2.5rem;
+    background:linear-gradient(to right,transparent,var(--dark));
+    pointer-events:none;
+  }
+  /* Hero meta stats touch */
+  .hero-stat{position:relative;overflow:hidden;}
+  .hero-stat:active::after{
+    content:'';position:absolute;inset:0;
+    background:rgba(255,255,255,.06);border-radius:var(--r);
+  }
+  /* Button active state more pronounced */
+  .btn-primary:active{transform:scale(.96);background:var(--silver-x)}
+  .btn-outline:active{transform:scale(.96)}
+  /* Mobile CTA tap */
+  .mobile-cta:active{background:rgba(255,255,255,.06)}
+  /* FAQ tap */
+  .faq-item:active{background:rgba(255,255,255,.02)}
+}
 @media(min-width:640px){
   h2.section-title{font-size:2.2rem}
   .hero h1{font-size:3.2rem}
@@ -679,6 +753,18 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
   .header-tel-desktop{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--white);text-decoration:none;padding:.6rem 1.4rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);transition:background .2s,border-color .2s}
   .header-tel-desktop:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
   .hero{padding-bottom:5rem}
+  .hero-bg{
+    background-position:center 40%;
+    filter:brightness(.38) saturate(.2);
+  }
+  .hero-overlay{
+    background:linear-gradient(
+      to top,
+      rgba(13,13,13,1)    0%,
+      rgba(13,13,13,.55) 45%,
+      rgba(13,13,13,.1)  100%
+    );
+  }
   .hero h1{font-size:clamp(3rem,5.5vw,5rem)}
   .hero-desc{max-width:520px;font-size:1.05rem}
   .section{padding:7rem 0}
@@ -696,6 +782,12 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
   .zubehoer-img{margin-top:0}
   .zubehoer-img img{aspect-ratio:4/5}
   .kontakt-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+  /* Trust bar: centred on desktop */
+  .trust-bar{overflow-x:visible}
+  .trust-inner{min-width:0;justify-content:center;padding:.9rem 2rem}
+  .trust-item:first-child{padding-left:1.2rem}
+  .desktop-nav a.nav-active{color:var(--white)}
+  .desktop-nav a.nav-active::after{transform:scaleX(1)}
   .map-consent-inner,.map-embed-active iframe{height:100%;min-height:440px}
   .footer-wrap{max-width:1200px;margin:0 auto}
   .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:0}
@@ -715,9 +807,9 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
 <div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen" aria-live="polite">
   <div class="cookie-inner">
     <p class="cookie-text">
-      <strong>Diese Website verwendet Cookies.</strong>
-      Wir setzen Google Maps ein, um Ihnen unseren Standort zu zeigen. Dabei werden Daten an Google &uuml;bertragen.
-      Weitere Informationen finden Sie in unserer <button class="modal-link" onclick="openModal('datenschutz')">Datenschutzerkl&auml;rung</button>.
+      <strong>Cookie-Einstellungen.</strong>
+      Wir verwenden Google Maps zur Standortanzeige. Erst nach Ihrer Zustimmung wird eine Verbindung zu Google-Servern (USA) aufgebaut und Ihre IP-Adresse &uuml;bertragen. Ihre Entscheidung wird lokal in Ihrem Browser gespeichert &mdash; ohne externe Dienste.
+      Details in unserer <button class="modal-link inline" onclick="openModal('datenschutz')">Datenschutzerkl&auml;rung</button>.
     </p>
     <div class="cookie-btns">
       <button class="cookie-accept" onclick="acceptCookies()">Alle akzeptieren</button>
@@ -742,22 +834,34 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a href="tel:052529399993" class="header-tel-desktop" aria-label="Anrufen: 05252 939993">05252 939993</a>
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false" aria-controls="mobileNav">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-        <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
-      </svg>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </button>
   </div>
-  <div class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-    <a href="#fahrzeuge" onclick="toggleMenu()">Fahrzeuge</a>
-    <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
-    <a href="#zubehoer" onclick="toggleMenu()">Zubeh&ouml;r</a>
-    <a href="#bewertungen" onclick="toggleMenu()">Bewertungen</a>
-    <a href="#faq" onclick="toggleMenu()">FAQ</a>
-    <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
-    <a href="tel:052529399993" class="tel-link">05252 939993</a>
-  </div>
 </header>
+
+<!-- MOBILE NAV OVERLAY — outside header to avoid stacking context issues -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mnav-header">
+    <span class="mnav-logo">Grenz Automobile</span>
+    <button class="mnav-close" onclick="toggleMenu()" aria-label="Schlie&szlig;en">
+      <svg width="22" height="22" viewBox="0 0 22 22"><line x1="2" y1="2" x2="20" y2="20"/><line x1="20" y1="2" x2="2" y2="20"/></svg>
+    </button>
+  </div>
+  <nav class="mnav-links">
+    <a href="#fahrzeuge" class="mnav-link" onclick="toggleMenu()">Fahrzeuge</a>
+    <a href="#leistungen" class="mnav-link" onclick="toggleMenu()">Leistungen</a>
+    <a href="#zubehoer" class="mnav-link" onclick="toggleMenu()">Zubeh&ouml;r</a>
+    <a href="#bewertungen" class="mnav-link" onclick="toggleMenu()">Bewertungen</a>
+    <a href="#faq" class="mnav-link" onclick="toggleMenu()">FAQ</a>
+    <a href="#kontakt" class="mnav-link" onclick="toggleMenu()">Kontakt</a>
+  </nav>
+  <div class="mnav-footer">
+    <a href="tel:052529399993" class="mnav-tel">05252 939993</a>
+  </div>
+</div>
 
 <main id="main-content">
 
@@ -810,7 +914,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
     <div class="cards-stack">
       <article class="vcard reveal">
         <!-- EIGENES FOTO: src="bilder/vw-bus-t4.jpg" -->
-        <img class="vcard-img" src="grenz_t4.jpeg" alt="VW Bus T4 Transporter kaufen Bad Lippspringe – Grenz Automobile" loading="lazy" width="800" height="500">
+        <img class="vcard-img" src="bilder/grenz_t4.jpeg" alt="VW Bus T4 Transporter kaufen Bad Lippspringe – Grenz Automobile" loading="lazy" width="800" height="500">
         <div class="vcard-body">
           <div class="vcard-tag">Kernkompetenz</div>
           <h3 class="vcard-title">VW Busse &amp; Transporter</h3>
@@ -820,7 +924,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
       </article>
       <article class="vcard reveal reveal-d1">
         <!-- EIGENES FOTO: src="bilder/wohnmobil.jpg" -->
-        <img class="vcard-img" src="wohnmobil1.avif" alt="Wohnmobil Reisemobil kaufen Bad Lippspringe – Grenz Automobile" loading="lazy" width="800" height="500">
+        <img class="vcard-img" src="bilder/wohnmobil1.avif" alt="Wohnmobil Reisemobil kaufen Bad Lippspringe – Grenz Automobile" loading="lazy" width="800" height="500">
         <div class="vcard-body">
           <div class="vcard-tag">Freiheit auf R&auml;dern</div>
           <h3 class="vcard-title">Wohnmobile &amp; Reisemobile</h3>
@@ -830,7 +934,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
       </article>
       <article class="vcard reveal reveal-d2">
         <!-- EIGENES FOTO: src="bilder/pkw.jpg" -->
-        <img class="vcard-img" src="t4.avif" alt="Gebrauchtwagen PKW kaufen Paderborn Bad Lippspringe" loading="lazy" width="800" height="500">
+        <img class="vcard-img" src="bilder/t4.avif" alt="Gebrauchtwagen PKW kaufen Paderborn Bad Lippspringe" loading="lazy" width="800" height="500">
         <div class="vcard-body">
           <div class="vcard-tag">Vielfalt</div>
           <h3 class="vcard-title">PKW verschiedener Fabrikate</h3>
@@ -852,7 +956,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
     <div class="two-col">
       <div class="werkstatt-img" style="display:none" aria-hidden="true">
         <!-- EIGENES FOTO: src="bilder/werkstatt.jpg" -->
-        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=900&q=80&auto=format" alt="KFZ Werkstatt Meisterbetrieb Bad Lippspringe – Grenz Automobile" loading="lazy" width="900" height="1125">
+        <img src="bilder/arbeit_werkstatt1.jpg" alt="KFZ Werkstatt Meisterbetrieb Bad Lippspringe – Grenz Automobile" loading="lazy" width="900" height="1125">
         <div class="werkstatt-badge"><div class="wb-num">20+</div><div class="wb-txt">Jahre Meisterbetrieb</div></div>
       </div>
       <div>
@@ -881,14 +985,14 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
         <p class="section-sub reveal">Speziell f&uuml;r VW-Busse &mdash; gro&szlig;es Lager, schnelle Verf&uuml;gbarkeit.</p>
         <div class="zg">
           <div class="zcard reveal"><div class="zcard-line"></div><h3 class="zcard-h">Ersatzteile</h3><p>Neu und gebraucht &mdash; umfangreiches Lager f&uuml;r T3 &amp; T4</p></div>
-          <div class="zcard reveal reveal-d1"><div class="zcard-line"></div><h3 class="zcard-h">Felgen &amp; Reifen</h3><p>Breite Auswahl f&uuml;r alle Typen</p></div>
+          <div class="zcard reveal reveal-d1"><div class="zcard-line"></div><h3 class="zcard-h">Felgen &amp; Reifen</h3><p>Breite Auswahl f&uuml;r alle VW Bus-Typen</p></div>
           <div class="zcard reveal reveal-d2"><div class="zcard-line"></div><h3 class="zcard-h">Tieferlegungen</h3><p>Sportliches Fahrwerk &mdash; fachgerecht eingetragen</p></div>
           <div class="zcard reveal reveal-d3"><div class="zcard-line"></div><h3 class="zcard-h">Tuningteile</h3><p>Optik &amp; Technik aus einer Hand</p></div>
         </div>
       </div>
       <div class="zubehoer-img reveal reveal-d1">
         <!-- EIGENES FOTO: src="bilder/felgen-zubehoer.jpg" -->
-        <img src="grenz_t4.jpeg" alt="Felgen Reifen Zubehör VW T3 T4 Bulli – Grenz Automobile" loading="lazy" width="900" height="506">
+        <img src="bilder/grenz.jpeg" alt="Felgen Reifen Zubehör VW T3 T4 VW Bus – Grenz Automobile" loading="lazy" width="900" height="506">
       </div>
     </div>
   </div>
@@ -904,8 +1008,8 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
       <div><span class="gs-stars">&starf;&starf;&starf;&starf;&starf;</span><span class="gs-count">49 Google-Bewertungen</span></div>
     </div>
     <div class="reviews-stack">
-      <article class="rcard reveal" itemscope itemtype="https://schema.org/Review"><div class="rcard-stars">&starf;&starf;&starf;&starf;&starf;</div><p class="rcard-text" itemprop="reviewBody">&bdquo;Seit 3 Jahren meine Werkstatt. Mein T4 2,5 TDi Multivan ist im top Zustand! Besonders hervorzuheben die fachliche Kompetenz und pers&ouml;nliche Beratung.&ldquo;</p><div class="rcard-author" itemprop="author">Gerd Drewes</div><div class="rcard-date">Google &middot; vor 6 Monaten</div></article>
-      <article class="rcard reveal reveal-d1" itemscope itemtype="https://schema.org/Review"><div class="rcard-stars">&starf;&starf;&starf;&starf;&starf;</div><p class="rcard-text" itemprop="reviewBody">&bdquo;Vor etwas mehr als einem Jahr einen aufbereiteten T4 gekauft. Wer einen gebrauchten Bulli sucht, ist bei Grenz genau richtig. Sehr gute Beratung.&ldquo;</p><div class="rcard-author" itemprop="author">Frank</div><div class="rcard-date">Google &middot; vor 6 Jahren</div></article>
+      <article class="rcard reveal" itemscope itemtype="https://schema.org/Review"><div class="rcard-stars">&starf;&starf;&starf;&starf;&starf;</div><p class="rcard-text" itemprop="reviewBody">&bdquo;Seit 3 Jahren meine Werkstatt. Mein VW T4 2,5 TDi Multivan ist im top Zustand! Besonders hervorzuheben die fachliche Kompetenz und pers&ouml;nliche Beratung.&ldquo;</p><div class="rcard-author" itemprop="author">Gerd Drewes</div><div class="rcard-date">Google &middot; vor 6 Monaten</div></article>
+      <article class="rcard reveal reveal-d1" itemscope itemtype="https://schema.org/Review"><div class="rcard-stars">&starf;&starf;&starf;&starf;&starf;</div><p class="rcard-text" itemprop="reviewBody">&bdquo;Vor etwas mehr als einem Jahr einen aufbereiteten T4 gekauft. Wer einen gebrauchten VW Bus sucht, ist bei Grenz genau richtig. Sehr gute Beratung.&ldquo;</p><div class="rcard-author" itemprop="author">Frank</div><div class="rcard-date">Google &middot; vor 6 Jahren</div></article>
       <article class="rcard reveal reveal-d2" itemscope itemtype="https://schema.org/Review"><div class="rcard-stars">&starf;&starf;&starf;&starf;&starf;</div><p class="rcard-text" itemprop="reviewBody">&bdquo;Alles, was besprochen wurde, ist ganz genau eingehalten worden. Absolut vertrauensw&uuml;rdiger Betrieb &mdash; klare Empfehlung!&ldquo;</p><div class="rcard-author" itemprop="author">Stephan Sch&uuml;tzeichel</div><div class="rcard-date">Google &middot; vor 5 Jahren</div></article>
     </div>
   </div>
@@ -1054,9 +1158,10 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
   <div class="container">
     <div class="eyebrow reveal">Anfahrt &amp; Kontakt</div>
     <h2 class="section-title reveal">So erreichen Sie uns</h2>
-    <div class="kontakt-layout">
 
-      <!-- Google Maps – consent-gesteuert -->
+    <!-- Top row: map + contact info -->
+    <div class="kontakt-layout">
+      <!-- Google Maps -->
       <div id="map-container" class="reveal">
         <div class="map-consent" id="map-consent-box">
           <div class="map-consent-inner">
@@ -1079,8 +1184,14 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
         <a href="https://maps.google.com/?q=Bleichstra%C3%9Fe+25,+33175+Bad+Lippspringe" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:.5rem">Route planen &rarr;</a>
       </div>
     </div>
+
   </div>
 </section>
+
+<!-- SCROLL TO TOP -->
+<button id="scrollTop" class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Zum Seitenanfang">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 </main>
 
@@ -1150,16 +1261,28 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
     <div class="addr-box">Grenz Automobile &middot; Roland Grenz<br>Bleichstra&szlig;e 25 &middot; 33175 Bad Lippspringe<br>Tel: 05252 939993 &middot; E-Mail: r.grenz&#8209;automobile&#64;web.de</div>
     <h3>2. Ihre Rechte</h3>
     <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft &uuml;ber Herkunft, Empf&auml;nger und Zweck Ihrer gespeicherten Daten sowie auf Berichtigung, Sperrung oder L&ouml;schung. Des Weiteren steht Ihnen ein Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde zu.</p>
+
     <h3>3. Datenerfassung</h3>
-    <p>Beim Besuch der Website erfassen unsere Server automatisch technische Informationen (Browsertyp, Betriebssystem, Referrer-URL, IP-Adresse, Zugriffszeit). Grundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-    <h3>4. Google Maps</h3>
-    <p>Diese Website bindet Google Maps ein. Dabei werden Daten an Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA &uuml;bertragen. Google Maps wird erst nach Ihrer ausdr&uuml;cklichen Zustimmung geladen. Grundlage: Art. 6 Abs. 1 lit. a DSGVO.</p>
-    <h3>5. Cookies</h3>
-    <p>Die Website verwendet technisch notwendige Cookies sowie Cookies zur Speicherung Ihrer Datenschutzeinstellungen. Diese werden lokal in Ihrem Browser gespeichert.</p>
-    <h3>6. SSL-Verschl&uuml;sselung</h3>
+    <p>Beim Besuch der Website erfassen unsere Server automatisch technische Informationen (Browsertyp, Betriebssystem, Referrer-URL, IP-Adresse, Zugriffszeit). Eine Zusammenf&uuml;hrung mit anderen Datenquellen findet nicht statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+    <h3>4. Cookie-Einwilligungsverwaltung (Consent)</h3>
+    <p>Diese Website nutzt eine eigene, datenschutzfreundliche L&ouml;sung zur Verwaltung Ihrer Cookie-Einwilligung. Dabei wird Ihre Entscheidung (Zustimmung oder Ablehnung) ausschlie&szlig;lich im <strong>lokalen Speicher Ihres Browsers (localStorage)</strong> gespeichert &mdash; kein Cookie wird gesetzt, und es werden keine Daten an Dritte &uuml;bertragen.</p>
+    <p>Gespeichert wird nur ein einzelner Schl&uuml;ssel (<em>grenz_cookie_consent</em>) mit dem Wert &bdquo;accepted&ldquo; oder &bdquo;declined&ldquo;. Dieser Wert verbleibt ausschlie&szlig;lich auf Ihrem Ger&auml;t. Es findet keine Verbindung zu externen Servern statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+    <p>Sie k&ouml;nnen Ihre Einwilligung jederzeit &uuml;ber den Button am Ende dieser Erkl&auml;rung zur&uuml;cksetzen.</p>
+
+    <h3>5. Webfonts (Bunny Fonts)</h3>
+    <p>Diese Website verwendet Schriftarten des Dienstes <strong>Bunny Fonts</strong>, betrieben von BunnyWay d.o.o., &Scaron;martinska cesta 152, 1000 Ljubljana, Slowenien (EU). Die Schriftarten werden von Servern innerhalb der Europ&auml;ischen Union bereitgestellt. Beim Laden der Seite wird eine Verbindung zu den Servern von Bunny Fonts hergestellt, dabei wird Ihre IP-Adresse &uuml;bertragen.</p>
+    <p>Im Gegensatz zu Google Fonts findet <strong>kein Datentransfer in Drittstaaten</strong> au&szlig;erhalb der EU statt. Es werden keine personenbezogenen Daten dauerhaft gespeichert oder an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der einheitlichen Darstellung der Website).</p>
+    <p>Weitere Informationen: <a href="https://bunny.net/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">bunny.net/privacy</a></p>
+
+    <h3>6. Google Maps</h3>
+    <p>Diese Website bindet Google Maps ein, betrieben von Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Maps wird <strong>erst nach Ihrer ausdr&uuml;cklichen Zustimmung</strong> &uuml;ber die Karten-Einblendung geladen. Erst dann werden Daten (inkl. IP-Adresse) an Google &uuml;bertragen. Ohne Zustimmung findet kein Verbindungsaufbau zu Google-Servern statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Datenschutzerkl&auml;rung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">policies.google.com/privacy</a></p>
+
+    <h3>7. SSL-Verschl&uuml;sselung</h3>
     <p>Diese Seite nutzt SSL- bzw. TLS-Verschl&uuml;sselung. &Uuml;bermittelte Daten k&ouml;nnen von Dritten nicht mitgelesen werden.</p>
-    <h3>7. Widerruf</h3>
-    <p>Eine erteilte Einwilligung zur Datenverarbeitung k&ouml;nnen Sie jederzeit widerrufen &mdash; per E-Mail oder &uuml;ber den Button unten.</p>
+
+    <h3>8. Widerruf &amp; Einstellungen</h3>
+    <p>Eine erteilte Einwilligung zur Datenverarbeitung k&ouml;nnen Sie jederzeit widerrufen &mdash; per formloser E-Mail oder &uuml;ber den Button unten. Nach dem Zur&uuml;cksetzen werden Sie beim n&auml;chsten Seitenaufruf erneut um Ihre Einwilligung gebeten.</p>
     <button class="cookie-decline" style="margin-top:.5rem;width:100%" onclick="resetCookies()">Cookie-Einstellungen zur&uuml;cksetzen</button>
   </div>
 </div>
@@ -1249,10 +1372,18 @@ function loadMap(){
 ══════════════════════════════ */
 function toggleMenu(){
   const nav = document.getElementById('mobileNav');
-  const btn = document.querySelector('.menu-btn');
-  const open = nav.classList.toggle('open');
+  const btn = document.getElementById('menuBtn');
+  const open = !nav.classList.contains('open');
+  nav.classList.toggle('open', open);
   btn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 }
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') {
+    const nav = document.getElementById('mobileNav');
+    if(nav.classList.contains('open')) toggleMenu();
+  }
+});
 
 /* ══════════════════════════════
    DESKTOP LAYOUT TOGGLE
@@ -1266,6 +1397,57 @@ function applyDesktopLayout(){
 }
 applyDesktopLayout();
 window.addEventListener('resize', applyDesktopLayout);
+
+/* ══════════════════════════════
+   HERO IMAGE LOAD ANIMATION
+══════════════════════════════ */
+(function(){
+  const bg = document.querySelector('.hero-bg');
+  if(!bg) return;
+  const img = new Image();
+  const url = getComputedStyle(bg).backgroundImage.replace(/url\(["']?|["']?\)/g,'');
+  img.onload = () => bg.classList.add('loaded');
+  img.src = url;
+})();
+
+/* ══════════════════════════════
+   EMAIL LINK FIX (anti-Cloudflare)
+══════════════════════════════ */
+document.querySelectorAll('.cf-email-link').forEach(a => {
+  const u = a.dataset.user, d = a.dataset.domain;
+  if(u && d){
+    const email = u + '@' + d;
+    a.href = 'mailto:' + email;
+    a.textContent = email;
+  }
+});
+
+/* ══════════════════════════════
+   ACTIVE NAV INDICATOR
+══════════════════════════════ */
+const sections = document.querySelectorAll('section[id], div[id="home"]');
+const navLinks = document.querySelectorAll('.desktop-nav a');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        if(link.getAttribute('href') === '#' + entry.target.id){
+          link.classList.add('nav-active');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => sectionObserver.observe(s));
+
+/* ══════════════════════════════
+   SCROLL TO TOP
+══════════════════════════════ */
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+}, { passive: true });
 
 /* ══════════════════════════════
    FAQ ACCORDION
